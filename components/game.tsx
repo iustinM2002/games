@@ -3,7 +3,6 @@ import { gameDetailsURL } from '../api';
 import Image from 'next/image';
 import Link from 'next/link';
 // import './game.module.css'
-import { Rating } from 'react-simple-star-rating';
 // import images
 import playstation from '../img/playstation.svg';
 import playstation5 from '../img/playstation.svg';
@@ -16,10 +15,10 @@ import starEmpty from "../img/star-empty.png";
 import starFull from '../img/star-full.png'
 
 
-const Game = ({game}) => {
+const Game = ({game}:{game:any}) => {
 
     
-  const getPlatform = (platform) =>{
+  const getPlatform = (platform:string) =>{
     switch(platform){
         case "PlayStation 4":
             return playstation;
@@ -65,7 +64,7 @@ const getStars = () =>{
           {getStars()}
         </div>
         <div className="platforms flex">
-          {game.platforms.map(data => <div className='mx-[0.3rem] 'key={data.platform.id}><Image  src={getPlatform(data.platform.name)}  ></Image></div> )}
+          {game.platforms.map((data:any) => <div className='mx-[0.3rem] 'key={data.platform.id}><Image  src={getPlatform(data.platform.name)}  ></Image></div> )}
            
         </div>
        <Link href="/"><a href="" className="underline">Home</a></Link>

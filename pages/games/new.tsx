@@ -12,7 +12,7 @@ const popularGames = ({newGames}:{newGames:any}) => {
   
   return (
     <div>
-      {newGames.results.map(game => <Game key={game.id} game={game} />)}
+      {newGames.results.map((game:any) => <Game key={game.id} game={game} />)}
     </div>
   )
 }
